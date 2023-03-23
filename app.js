@@ -1,41 +1,26 @@
 "use strict";
-const jackTenorman = {
-  name: "Jack Tenorman",
-  nickname: "undefined",
-  image:
-    "https://southparkstudios.mtvnimages.com/shared/characters/adults/jack-tenorman.png?height=165",
-  occupation: "Former NFL player for Denver Broncos",
-  age: 43,
-  voicedBy: "Trey Parker",
-  gender: "male",
-  religion: "undefined",
-  catchPhrase: "undefined",
-  hairColor: "Red",
-  schoolGrade: "undefined",
-  episodes: "S05E01, S14E06",
-  appearances: 2,
-  firstApperance: "S05E01",
-};
+window.addEventListener("load", initApp);
 
-addCharacters(jackTenorman);
-addCharacters(jackTenorman);
-addCharacters(jackTenorman);
-addCharacters(jackTenorman);
-addCharacters(jackTenorman);
-addCharacters(jackTenorman);
-addCharacters(jackTenorman);
-addCharacters(jackTenorman);
-addCharacters(jackTenorman);
-addCharacters(jackTenorman);
-addCharacters(jackTenorman);
-addCharacters(jackTenorman);
-addCharacters(jackTenorman);
-addCharacters(jackTenorman);
+async function initApp() {
+  const jack = await getData("/data/jack.json");
+  addCharacters(jack);
+  addCharacters(jack);
+  addCharacters(jack);
+  addCharacters(jack);
+  addCharacters(jack);
+  addCharacters(jack);
+}
+
+async function getData(dataSource) {
+  const response = await fetch(dataSource);
+  const data = await response.json();
+  return data;
+}
 
 function addCharacters(character) {
   const addHTML = /*html*/ `
   <article>
-  <img src="${character.image}"> 
+    <img src="${character.image}"> 
     <h1>Name: ${character.name}</h1>
     <h4>Catch phrase: ${character.catchPhrase}</h4> 
     <p>Occupation: ${character.occupation}</p>
@@ -84,11 +69,6 @@ function addCharacters(character) {
 
 function closeModal() {
   document.querySelector("#dialog-character").close();
-}
-
-function getData() {
-  const data = [];
-  return data;
 }
 
 // function showAllCharacters(list) {}
