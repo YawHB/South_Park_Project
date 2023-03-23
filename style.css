@@ -1,0 +1,50 @@
+body {
+  margin: 0;
+  background-color: #56dd12;
+}
+
+header {
+  background-color: #ee590f;
+  padding: 10px;
+  margin-bottom: 40px;
+  text-align: center;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.grid-container > article {
+  padding: 1.5em;
+  border-style: solid;
+  border-width: 5px;
+  border-color: #4dc610;
+  border-radius: 3%;
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.25);
+  text-align: center;
+}
+
+.grid-container > article:hover {
+  background-color: #4dc610;
+  transform: scale(1.05);
+  transition: transform 0.5s;
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.25);
+}
+
+dialog {
+  background-color: #945b47;
+}
+
+dialog > #dialog-btn-close {
+  text-align: center;
+}
+
+footer {
+  background-color: #ee590f;
+  padding: 20px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
