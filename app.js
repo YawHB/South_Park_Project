@@ -2,7 +2,9 @@
 window.addEventListener("load", initApp);
 
 async function initApp() {
-  const jack = await getData("/data/jack.json");
+  const jack = await getData(
+    "https://raw.githubusercontent.com/YawHB/South_Park_Project/main/data/jack.json"
+  );
   addCharacters(jack);
   addCharacters(jack);
   addCharacters(jack);
