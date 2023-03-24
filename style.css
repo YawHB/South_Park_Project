@@ -1,12 +1,13 @@
 body {
-  margin: 1;
-  background-color: #56dd12;
+  margin: 0;
+  background-color: #945b47;
 }
 
 header {
   background-color: #ee590f;
   padding: 10px;
   margin-bottom: 40px;
+  width: auto;
   text-align: center;
 }
 .grid-container {
@@ -20,16 +21,22 @@ header {
   border-style: solid;
   border-width: 5px;
   border-color: #4dc610;
+  background-color: #4dc610;
   border-radius: 3%;
+  transition: 0.5s;
   box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.25);
   text-align: center;
 }
 
 .grid-container > article:hover {
-  background-color: #4dc610;
+  background-color: #56dd12;
   transform: scale(1.05);
   transition: transform 0.5s;
   box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.25);
+}
+
+article > img {
+  height: 150px;
 }
 
 dialog {
@@ -43,7 +50,7 @@ dialog > #dialog-btn-close {
 footer {
   background-color: #ee590f;
   padding: 20px;
-  position: fixed;
+  /* position: fixed; */
   bottom: 0;
   width: 100%;
   text-align: center;
