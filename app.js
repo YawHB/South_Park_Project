@@ -107,11 +107,15 @@ function addCharacters(character) {
     document
       .querySelector("#dialog-btn-close")
       .addEventListener("click", closeModal);
+    document
+      .querySelector("#dialog-character")
+      .addEventListener("click", closeModal);
   }
 }
 //
 
 function closeModal() {
+  console.log("close moday with click on overlay");
   document.querySelector("#dialog-character").close();
   document.querySelector(".overlay").classList.add("hidden");
 }

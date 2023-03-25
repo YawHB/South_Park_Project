@@ -54,7 +54,26 @@ dialog {
 
 dialog > img {
   height: 250px;
+  margin: 0 auto;
+  display: block;
 }
+
+#dialog-character h2,
+#dialog-character h3,
+#dialog-character h5,
+#dialog-character li {
+  text-align: center;
+  list-style: none;
+  margin-bottom: 3px;
+}
+
+#dialog-character h3 {
+  border-bottom: solid 1px black;
+  margin-bottom: 30px;
+}
+
+/* #dialog-character .inline-list {
+} */
 
 dialog > #dialog-btn-close {
   cursor: pointer;
@@ -78,6 +97,7 @@ dialog > #dialog-btn-close:hover {
   left: 0;
   width: 100%;
   height: 100%;
+  transition: 200ms ease-in-out;
   background-color: rgba(75, 74, 74, 0.6);
   backdrop-filter: blur(3px);
   z-index: 5;
