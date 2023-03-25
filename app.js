@@ -29,6 +29,15 @@ async function initApp() {
   const randy = await getData(
     "https://raw.githubusercontent.com/MadsFolkmann/Data-app-kode/main/data/randy.json"
   );
+  const stan = await getData(
+    "https://raw.githubusercontent.com/VARattleff/south-park-viktor/main/sp.json"
+  );
+  const tolkien = await getData(
+    "https://raw.githubusercontent.com/Abdiox/South-park1/main/Data/southPark.json"
+  );
+  const heather = await getData(
+    "https://raw.githubusercontent.com/Benjamin-Harris1/Data-app/main/data/heather.json"
+  );
 
   addCharacters(jack);
   addCharacters(jimmy);
@@ -39,6 +48,9 @@ async function initApp() {
   addCharacters(johnFKennedy);
   addCharacters(kenneth);
   addCharacters(randy);
+  addCharacters(stan);
+  addCharacters(tolkien);
+  addCharacters(heather);
 }
 
 async function getData(dataSource) {
@@ -69,6 +81,7 @@ function addCharacters(character) {
   function characterClicked() {
     console.log(character);
     document.querySelector("#dialog-character").showModal();
+    document.querySelector(".overlay").classList.remove("hidden");
 
     document.querySelector("#dialog-name").textContent = character.name;
     document.querySelector("#dialog-image").src = character.image;
@@ -100,6 +113,7 @@ function addCharacters(character) {
 
 function closeModal() {
   document.querySelector("#dialog-character").close();
+  document.querySelector(".overlay").classList.add("hidden");
 }
 
 // function showAllCharacters(list) {}

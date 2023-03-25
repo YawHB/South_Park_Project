@@ -40,13 +40,52 @@ article > img {
 }
 
 dialog {
+  position: fixed;
   background-color: #945b47;
+  top: 0%;
+  left: 0;
+  padding: 30px;
+  width: 40%;
+  height: 85%;
+  z-index: 10;
+  border: 2 solid black;
+  border-radius: 10px;
+}
+
+dialog > img {
+  height: 250px;
 }
 
 dialog > #dialog-btn-close {
-  text-align: center;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #2c2525;
+  transition: 0.5s;
+}
+dialog > #dialog-btn-close:hover {
+  transform: scale(1.2);
+  transition: transform 0.5s;
+  color: #000000;
 }
 
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(75, 74, 74, 0.6);
+  backdrop-filter: blur(3px);
+  z-index: 5;
+}
+
+.hidden {
+  display: none;
+}
 footer {
   background-color: #ee590f;
   padding: 20px;

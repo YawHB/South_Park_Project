@@ -14,8 +14,10 @@
 
     <main>
       <section id="characters" class="grid-container"></section>
+
       <!-- Done by JS -->
       <dialog id="dialog-character">
+        <button class="btns" id="dialog-btn-close">&times;</button>
         <h2 id="dialog-name"></h2>
         <h3>Nickname <span id="dialog-nickname"></span></h3>
         <img id="dialog-image" src="" />
@@ -30,9 +32,9 @@
         <li>Episodes: <span id="dialog-episodes"></span></li>
         <li>Appearances: <span id="dialog-appearances"></span></li>
         <li>First Apperance: <span id="dialog-first-apperance"></span></li>
-        <button class="btns" id="dialog-btn-close">close</button>
       </dialog>
     </main>
+    <div class="overlay hidden"></div>
     <script src="app.js"></script>
     <footer>
       <p>Made By Yaw</p>
