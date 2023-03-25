@@ -79,9 +79,7 @@ function addCharacters(character) {
     .addEventListener("click", characterClicked);
 
   function characterClicked() {
-    console.log(character);
-    document.querySelector("#dialog-character").showModal();
-    document.querySelector(".overlay").classList.remove("hidden");
+    showModal();
 
     document.querySelector("#dialog-name").textContent = character.name;
     document.querySelector("#dialog-image").src = character.image;
@@ -104,6 +102,7 @@ function addCharacters(character) {
     document.querySelector("#dialog-first-apperance").textContent =
       character.firstApperance;
 
+    tooYoungToDrink(character);
     document
       .querySelector("#dialog-btn-close")
       .addEventListener("click", closeModal);
@@ -112,12 +111,35 @@ function addCharacters(character) {
       .addEventListener("click", closeModal);
   }
 }
-//
-
+//Shows modal
+function showModal() {
+  document.querySelector("#dialog-character").showModal();
+  document.querySelector(".overlay").classList.remove("hidden");
+}
+//Close modal
 function closeModal() {
   console.log("close moday with click on overlay");
   document.querySelector("#dialog-character").close();
   document.querySelector(".overlay").classList.add("hidden");
+}
+
+function tooYoungToDrink(character) {
+  if (character.age <= 20) {
+    document.querySelector(
+      "#dialog-age"
+    ).textContent = `${character.name} is only 
+    ${character.age} years old and not old enough to legally drink`;
+  } else if (character.age > 20 && character.age < 60) {
+    document.querySelector(
+      "#dialog-age"
+    ).textContent = `${character.name} is enjoying
+    the perks of being ${character.age} by having a drink or two`;
+  } else if (character.age >= 60) {
+    document.querySelector(
+      "#dialog-age"
+    ).textContent = `${character.name} is too old
+    for shitface fridays`;
+  }
 }
 
 // function showAllCharacters(list) {}

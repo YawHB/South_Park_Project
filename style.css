@@ -1,3 +1,7 @@
+* {
+  user-select: none; /* disabling highlighting of pics */
+}
+
 body {
   margin: 0;
   background-color: #945b47;
@@ -6,9 +10,10 @@ body {
 header {
   background-color: #ee590f;
   padding: 10px;
-  margin-bottom: 40px;
+  margin-bottom: 1px;
   width: auto;
   text-align: center;
+  border-radius: 10px;
 }
 .grid-container {
   display: grid;
@@ -26,6 +31,7 @@ header {
   transition: 0.5s;
   box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.25);
   text-align: center;
+  cursor: pointer;
 }
 
 .grid-container > article:hover {
@@ -35,11 +41,20 @@ header {
   box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.25);
 }
 
+section {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+/* disable the dragging of pictures */
+img {
+  -webkit-user-drag: none;
+}
 article > img {
   height: 150px;
 }
 
-dialog {
+#dialog-character {
   position: fixed;
   background-color: #945b47;
   top: 0%;
@@ -113,4 +128,5 @@ footer {
   bottom: 0;
   width: 100%;
   text-align: center;
+  border-radius: 10px;
 }
