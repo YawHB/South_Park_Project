@@ -26,6 +26,7 @@ header h1 {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  text-shadow: 2px 2px 4px rgba(120, 119, 119, 0.5);
 }
 .grid-container {
   display: grid;
