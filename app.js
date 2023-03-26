@@ -115,12 +115,20 @@ function addCharacters(character) {
 function showModal() {
   document.querySelector("#dialog-character").showModal();
   document.querySelector(".overlay").classList.remove("hidden");
+  setTimeout(() => {
+    document.querySelector("#dialog-character").style.opacity = "1";
+    document.querySelector(".overlay").style.opacity = "1";
+  }, 50);
 }
 //Close modal
 function closeModal() {
-  console.log("close moday with click on overlay");
   document.querySelector("#dialog-character").close();
-  document.querySelector(".overlay").classList.add("hidden");
+
+  document.querySelector(".overlay").style.opacity = "0";
+  setTimeout(() => {
+    document.querySelector("#dialog-character").style.opacity = "0";
+    document.querySelector(".overlay").classList.add("hidden");
+  }, 500);
 }
 
 function tooYoungToDrink(character) {
