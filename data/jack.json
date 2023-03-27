@@ -9,8 +9,8 @@
   "religion": "undefined",
   "catchPhrase": "undefined",
   "hairColor": "Red",
-  "schoolGrade": "undefined",
+  "schoolGrade": null,
   "episodes": "S05E01, S14E06",
   "appearances": 2,
-  "firstApperance": "S05E01"
+  "firstAppearance": "S05E01"
 }
