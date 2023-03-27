@@ -2,55 +2,11 @@
 window.addEventListener("load", initApp);
 
 async function initApp() {
-  const jack = await getData(
-    "https://raw.githubusercontent.com/YawHB/South_Park_Project/main/data/jack.json"
-  );
-  const jimmy = await getData(
-    "https://raw.githubusercontent.com/Forkeh/South-Park-App/main/data/jimmy.json"
-  );
-  const paris = await getData(
-    "https://raw.githubusercontent.com/Tunafan/southpark_db/main/South%20Park%20db/data/paris.json"
-  );
-  const obama = await getData(
-    "https://raw.githubusercontent.com/AliHMohammad/Data-Ali/main/obamaChar.json"
-  );
-  const leopold = await getData(
-    "https://raw.githubusercontent.com/Asbjoernemil/data-assignment/main/data/characters.json"
-  );
-  const tom = await getData(
-    "https://raw.githubusercontent.com/svdf18/SPobjects/main/data/tomcruise.json"
-  );
-  const johnFKennedy = await getData(
-    "https://raw.githubusercontent.com/rarogbennu/SP/master/data/jfk.json"
-  );
-  const kenneth = await getData(
-    "https://raw.githubusercontent.com/Mart0808DK/Data-fetch-projekt/main/kenny.json"
-  );
-  const randy = await getData(
-    "https://raw.githubusercontent.com/MadsFolkmann/Data-app-kode/main/data/randy.json"
-  );
-  const stan = await getData(
-    "https://raw.githubusercontent.com/VARattleff/south-park-viktor/main/sp.json"
-  );
-  const tolkien = await getData(
-    "https://raw.githubusercontent.com/Abdiox/South-park1/main/Data/southPark.json"
-  );
-  const heather = await getData(
-    "https://raw.githubusercontent.com/Benjamin-Harris1/Data-app/main/data/heather.json"
+  const personList = await getData(
+    "https://cederdorff.github.io/dat-js/05-data/southpark.json"
   );
 
-  addCharacters(jack);
-  addCharacters(jimmy);
-  addCharacters(paris);
-  addCharacters(obama);
-  addCharacters(leopold);
-  addCharacters(tom);
-  addCharacters(johnFKennedy);
-  addCharacters(kenneth);
-  addCharacters(randy);
-  addCharacters(stan);
-  addCharacters(tolkien);
-  addCharacters(heather);
+  personList.forEach(addCharacters);
 }
 
 async function getData(dataSource) {
@@ -126,7 +82,6 @@ function closeModal() {
 
   document.querySelector(".overlay").style.opacity = "0";
   setTimeout(() => {
-    document.querySelector("#dialog-character").style.opacity = "0";
     document.querySelector(".overlay").classList.add("hidden");
   }, 500);
 }
