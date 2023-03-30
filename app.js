@@ -9,16 +9,10 @@ async function initApp() {
     const personList = await getData(
       "https://cederdorff.github.io/dat-js/05-data/southpark.json"
     );
-    console.log(personList);
     personList.forEach(addCharacters);
-    console.log(personList);
   } catch (error) {
     console.log("ERROR: " + error);
   }
-
-  // document
-  //   .querySelector("#select-color-theme")
-  //   .addEventListener("change", modeSelected);
 }
 
 // We use await in order to wait for the response to complete. (we wait for the Proimise)
@@ -26,16 +20,13 @@ async function initApp() {
 //Therefore, await makes sure we fetch all the data before moving on.
 //async: whaiting for a promise is an asynchronous operation. Therefore we have to use async in combination with await
 async function getData(dataSource) {
-  console.log(dataSource);
   //Fetching means we are getting data from a server.
   const response = await fetch(dataSource);
-  console.log(response);
-
+  //Converting from json to js syntax
   const data = await response.json();
-  console.log(data);
   return data;
 }
-
+//Adds the article elements
 function addCharacters(character) {
   const addHTML = /*html*/ `
   <article>
@@ -47,24 +38,25 @@ function addCharacters(character) {
     <p>Gender: ${character.gender}</p> 
   </article>
   `;
+  // The current element is place as the last character in the section element
   document
     .querySelector("#characters")
     .insertAdjacentHTML("beforeend", addHTML);
-
+  // The last character gets a click event that opens the modul for that character
   document
     .querySelector("#characters article:last-child")
     .addEventListener("click", characterClicked);
-  console.log("clickevent " + character);
 
   function characterClicked() {
+    //Calls showCharacter with the object clicked
     showCharacterModal(character);
-    console.log("characterClicked:  ", character);
+    //Calls the showModal function
     showModal();
   }
 }
 
 function showCharacterModal(character) {
-  console.log("character ", character);
+  //Adds all the properties in the modal window
   document.querySelector("#dialog-name").textContent = character.name;
   document.querySelector("#dialog-image").src = character.image;
   document.querySelector("#dialog-nickname").textContent = character.nickname;
@@ -85,10 +77,12 @@ function showCharacterModal(character) {
   document.querySelector("#dialog-first-apperance").textContent =
     character.firstApperance;
 
+  // Calls the tooYoungToDring function. the function returns a description based on age and name. Then sets that description to dialog age.
   const description = tooYoungToDrink(character);
   document.querySelector("#dialog-age").textContent = description;
 }
 
+//Closes the modal on the given dialog window
 document
   .querySelector("#dialog-btn-close")
   .addEventListener("click", closeModal);
@@ -100,8 +94,11 @@ document
 //Shows modal
 function showModal() {
   document.querySelector("#dialog-character").showModal();
+  //Shows overlay
   document.querySelector(".overlay").classList.remove("hidden");
+  // makes the modal window completely see through
   document.querySelector("#dialog-character").style.opacity = "0";
+  // setTimeout waits 50ms then sets the modal window and overlay to 100% opacity
   setTimeout(() => {
     document.querySelector("#dialog-character").style.opacity = "1";
     document.querySelector(".overlay").style.opacity = "1";
@@ -109,15 +106,18 @@ function showModal() {
 }
 //Close modal
 function closeModal() {
+  //closes modal when btn clicked
   document.querySelector("#dialog-character").close();
-
+  // makes the modal window completely see through
   document.querySelector(".overlay").style.opacity = "0";
   setTimeout(() => {
+    // Removes overlay and hides dialog window
     document.querySelector(".overlay").classList.add("hidden");
     document.querySelector("#dialog-character").style.opacity = "0";
   }, 500);
 }
 
+// Checks what age a character is and returns a description based on age and name
 function tooYoungToDrink(character) {
   let description = "";
 
@@ -134,6 +134,7 @@ function tooYoungToDrink(character) {
   return description;
 }
 
+//**********************************************
 // Color mode for page
 
 // function modeSelected() {
@@ -153,4 +154,3 @@ function tooYoungToDrink(character) {
 
 // function resetColorMode() {
 //   document.body.classList = "";
-// }
