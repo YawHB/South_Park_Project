@@ -18,7 +18,7 @@ async function initApp() {
 // We use await in order to wait for the response to complete. (we wait for the Proimise)
 //If the repsonse time may be slow, i.e. if there is bad internet connection or the server is slow.
 //Therefore, await makes sure we fetch all the data before moving on.
-//async: whaiting for a promise is an asynchronous operation. Therefore we have to use async in combination with await
+//async: waiting for a promise is an asynchronous operation. Therefore we have to use async in combination with await
 async function getData(dataSource) {
   //Fetching means we are getting data from a server.
   const response = await fetch(dataSource);
@@ -38,7 +38,7 @@ function addCharacters(character) {
     <p>Gender: ${character.gender}</p> 
   </article>
   `;
-  // The current element is place as the last character in the section element
+  // The current element is placed as the last character in the section element
   document
     .querySelector("#characters")
     .insertAdjacentHTML("beforeend", addHTML);
